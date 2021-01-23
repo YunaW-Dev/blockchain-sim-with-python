@@ -1,4 +1,11 @@
+owner = "hash later"
 blockchain = []
+open_transactions = []
+genesis_block =
+    {'prev_hash': '',
+    'index': 0,
+    'transaction': []}
+
 def switch(flag):
     flag = not flag
     return flag
@@ -14,8 +21,9 @@ def process_usr_input():
         seperator_line()
         usr_select = dialog()
         if (usr_select == 'a'):
-            usr_session_amount = get_transaction_amount()
-            add_transaction(usr_session_amount, return_last_transaction())
+            trx_response = get_transaction_amount()
+            recipient, amount = trx_response
+            add_transaction(receiver = recipient, amount = amount)
             print("\n****** Amount saved, back to menu ******")
             seperator_line()
         elif (usr_select == 'b'):
@@ -29,29 +37,31 @@ def process_usr_input():
             pass
 
 def get_transaction_amount():
-    flag = True
-    entered_amount = input("\nPlease enter the amount: ")
-    while(flag):
-        try:
-            amount = float(entered_amount)
-            switch(flag)
-        except Exception as ex:
-            print("'{}' is NOT a correct transaction amount, please re-enter \n {}".format(entered_amount, ex))
-            exit(0)
-        else:
-            return amount
+    trx_recipient = input("Please enter recipient: ")
+    trx_amount = float(input("\nPlease enter the amount: "))
+    return trx_recipient, trx_amount
 
 def return_last_transaction():
     if len(blockchain) >= 1:
         return blockchain[-1]
-    return None
+    return genesis_block
 
-def add_transaction(transaction_amount, last_transaction = [0]):
-    if last_transaction == None:
-        last_transaction = [0]
-    blockchain.append([last_transaction, transaction_amount])
+def add_transaction(sender = owner, receiver, amount = 1):
+    transaction = {"sender":send, "receiver":receive, "amount"= amount}
+    open_transaction.append(transaction)
 
 def return_blockchain():
     print("\n****** The current blockchain is: {} ******\n".format(blockchain))
+
+def mining_block():
+    last_block = return_last_transaction()
+    for keys in last_block:
+
+    block =
+    {'prev_hash':'hash',
+    'index': len(blockchain),
+    'transaction': open_transactions}
+
+
 
 process_usr_input()
