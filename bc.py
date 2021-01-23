@@ -17,8 +17,10 @@ def process_usr_input():
             usr_session_amount = get_transaction_amount()
             add_transaction(usr_session_amount, return_last_transaction())
             print("\n****** Amount saved, back to menu ******")
+            seperator_line()
         elif (usr_select == 'b'):
             return_blockchain()
+            seperator_line()
         elif (usr_select == 'q'):
             print("exiting")
             flag = switch(flag)
