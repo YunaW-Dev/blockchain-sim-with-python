@@ -1,5 +1,5 @@
 ![alt text](https://img.shields.io/badge/python-3.8.2-green)
-# blockchain-sim-with-python
+# cryptocurrency-simulator-with-python
 
 simulating cryptocurrency such as bitcoin inside python, using blockchain data structure.
 
